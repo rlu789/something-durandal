@@ -23,7 +23,7 @@ define(function (require) {
 					data: {
 						'function': 'check',
 					},
-					url: 'app/documentModels/login.php',
+					url: 'app/services/login.php',
 				})
 					.done(function (response) {
 						console.log(response);

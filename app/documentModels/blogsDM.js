@@ -13,7 +13,7 @@ define(function (require) {
 		var content = params.content !== undefined ? params.content : "Default content";
 
 		$.ajax({
-			url: "app/documentModels/addBlog.php",
+			url: "app/services/addBlog.php",
 			type: "post",
 			data: { title: title, content: content, username: username }
 		})

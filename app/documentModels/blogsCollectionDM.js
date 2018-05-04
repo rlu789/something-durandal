@@ -8,7 +8,7 @@ define(function (require) {
 	collection.prototype.init = function () {
 		$.ajax({ //ajax request to locahost mysql database
 			type: 'post',
-			url: 'app/documentModels/blogs.php',
+			url: 'app/services/blogs.php',
 		})
 			.done(function (response) {
 				$.parseJSON(response).forEach(function (data) {

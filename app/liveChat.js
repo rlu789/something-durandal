@@ -10,7 +10,7 @@ define(function (require) {
 			var self = this;
 			$.ajax({
 				type: "POST",
-				url: "app/liveChat/liveChat.php",
+				url: "app/services/liveChat.php",
 				data: {
 					'function': 'get',
 				},
@@ -29,7 +29,7 @@ define(function (require) {
 			var self = this;
 			$.ajax({
 				type: "POST",
-				url: "app/liveChat/liveChat.php",
+				url: "app/services/liveChat.php",
 				data: {
 					'function': 'update',
 					state: self.state()
@@ -51,7 +51,7 @@ define(function (require) {
 				console.log(self.message());
 				$.ajax({
 					type: "POST",
-					url: "app/liveChat/liveChat.php",
+					url: "app/services/liveChat.php",
 					data: {
 						'function': 'send',
 						message: self.message()
