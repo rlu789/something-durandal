@@ -1,17 +1,21 @@
 define(function (require) {
-	var router = require('plugins/router');
+	var router = require('plugins/router'),
+		ko = require('knockout'),
+		userDM = require('documentModels/userDM');
 
 	return {
 		router: router,
+		length: ko.observable(),
 		activate: function () {
 			console.log('ACTIVATED SHELL PAGE');
+			var self = this;
 			router.map([
 				{ route: '', title: 'Home', moduleId: 'home', nav: true },
 				{ route: 'addBlog', title: 'Add', moduleId: 'addBlog', nav: true },
 				{ route: 'liveChat', title: 'Live Chat', moduleId: 'liveChat', nav: true },
 				{ route: 'login', title: 'Login', moduleId: 'login', nav: false }
 			]).buildNavigationModel();
-
+			
 			router.activate();
 
 			//for user accounts
@@ -31,7 +35,7 @@ define(function (require) {
 							router.navigate("login");
 						}
 						else { "wtf man"; }
-						return true;
+						userDM.name($.parseJSON(response));
 					});
 				return true;
 			};

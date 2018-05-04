@@ -5,7 +5,7 @@
     	case('check'):
 			if (isset($_SESSION['user'])){
 				// logged in !
-				echo json_encode(true);
+				echo json_encode($_SESSION['user']);
 			}
 			else{
 				echo json_encode(false);

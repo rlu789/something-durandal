@@ -1,8 +1,10 @@
 define(function (require) {
 	var ko = require('knockout'),
-		router = require('plugins/router');
+		router = require('plugins/router'),
+		userDM = require('documentModels/userDM');
 
 	return {
+		userDM: userDM,
 		username: ko.observable(),
 		password: ko.observable(),
 		login: function () {
@@ -17,8 +19,11 @@ define(function (require) {
 				url: 'app/services/login.php',
 			})
 				.done(function (response) {
-					console.log(response);
-					if (response == 1) { router.navigate(""); }
+					if (response == 1) {
+						self.userDM.name(self.username());
+						console.log(self.userDM.name);
+						router.navigate("");
+					}
 					else console.log("failed to log in");
 				});
 		}
