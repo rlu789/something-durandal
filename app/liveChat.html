@@ -1,0 +1,22 @@
+<div id="page-wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg">
+                <h2>Live Chat</h2>
+                <div data-bind="foreach: allMessages">
+                    <div class="card" style="width: 18rem;">
+                        <div class="list-group">
+                            <h5 class="list-group-item" data-bind="text: message"></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <form id="send-message-area">
+                    <p>Your message: </p>
+                    <textarea data-bind="value: message , valueUpdate: 'afterkeydown', event: { keyup: send }" maxlength='100'></textarea>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

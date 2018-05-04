@@ -1,0 +1,13 @@
+<section>
+    <h2>Hello!</h2>
+    <br />
+    <div data-bind="foreach: blogsCollectionDM">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" data-bind="text: title"></h5>
+                <p class="card-text" data-bind="text: content"></p>
+                <small data-bind="text: username"></small>
+            </div>
+        </div>
+    </div>
+</section>
