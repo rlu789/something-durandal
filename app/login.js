@@ -21,7 +21,6 @@ define(function (require) {
 				.done(function (response) {
 					if (response == 1) {
 						self.userDM.name(self.username());
-						console.log(self.userDM.name);
 						router.navigate("");
 					}
 					else console.log("failed to log in");

@@ -25,6 +25,7 @@
 			}
 			else{
 				$_SESSION['user'] = $username;
+				$_SESSION['password'] = $password;
 				echo true;
 			}
 			$conn->close();
