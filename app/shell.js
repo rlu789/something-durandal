@@ -5,7 +5,7 @@ define(function (require) {
 
 	return {
 		router: router,
-		length: ko.observable(),
+		userDM: userDM,
 		activate: function () {
 			console.log('ACTIVATED SHELL PAGE');
 			var self = this;

@@ -30,5 +30,12 @@
 			}
 			$conn->close();
 			break;
+		case('logout'):
+			// remove all session variables
+			session_unset(); 
+			// destroy the session 
+			session_destroy(); 
+			echo true;
+			break;
 	}
 ?>
