@@ -1,0 +1,21 @@
+<form data-bind="with: signUpForm">
+    <div class="form-group">
+        <label>Create A Username</label>
+        <input data-bind="value: username" type="text" class="form-control" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label>Create A Password</label>
+        <input data-bind="value: password" type="password" class="form-control" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label>Repeat Your Password</label>
+        <input data-bind="value: passwordCheck" type="password" class="form-control" placeholder="Password">
+    </div>
+    <!--components time?-->
+    <!-- ko ifnot: passwordSame-->
+    <div class="alert alert-danger" role="alert">
+        Passwords don't match!
+    </div>
+    <!-- /ko -->
+    <button data-bind="click: signUp" type="submit" class="btn btn-primary">Sign Up</button>
+</form>

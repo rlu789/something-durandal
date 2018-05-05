@@ -6,6 +6,9 @@ define(function (require) {
 	return {
 		router: router,
 		userDM: userDM,
+		signUp: function () {
+			router.navigate("signUp");
+		},
 		activate: function () {
 			console.log('ACTIVATED SHELL PAGE');
 			var self = this;
@@ -13,7 +16,8 @@ define(function (require) {
 				{ route: '', title: 'Home', moduleId: 'home', nav: true },
 				{ route: 'addBlog', title: 'Add', moduleId: 'addBlog', nav: true },
 				{ route: 'liveChat', title: 'Live Chat', moduleId: 'liveChat', nav: true },
-				{ route: 'login', title: 'Login', moduleId: 'login', nav: false }
+				{ route: 'login', title: 'Login', moduleId: 'login', nav: false },
+				{ route: 'signUp', title: 'Sign Up', moduleId: 'signUp', nav: false }
 			]).buildNavigationModel();
 			
 			router.activate();
@@ -31,11 +35,11 @@ define(function (require) {
 				})
 					.done(function (response) {
 						console.log(response);
-						if (instruction.config.route !== 'login' && response === "false") {
+						if (instruction.config.route === 'signUp') { return; }
+						else if (instruction.config.route !== 'login' && response === "false") {
 							router.navigate("login");
 						}
-						else { "wtf man"; }
-						userDM.name($.parseJSON(response));
+						else userDM.name($.parseJSON(response));
 					});
 				return true;
 			};

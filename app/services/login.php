@@ -37,5 +37,31 @@
 			session_destroy(); 
 			echo true;
 			break;
+		case('create'):
+			$newUsername = $_POST['username'];
+			$newPassword = $_POST['password'];
+
+			// Create connection
+			$conn = new mysqli("localhost", "root", "root", "mysql");
+			// Check connection
+			if ($conn->connect_error) {
+				die($conn->connect_error);
+			}
+			$sql = "CREATE USER '$newUsername'@'localhost' IDENTIFIED BY '$newPassword'";
+			if ($conn->query($sql) === FALSE) {
+				echo "Error: " . $sql . "<br>" . $conn->error; 
+			}
+			$priv = "GRANT SELECT ON *.* TO '$newUsername'@'localhost'";
+			if ($conn->query($priv) === FALSE) {
+				echo "Error: " . $priv . "<br>" . $conn->error; 
+			}
+
+			$priv2 = "GRANT SELECT, INSERT, UPDATE, DELETE ON something.* TO '$newUsername'@'localhost'";
+			if ($conn->query($priv2) === FALSE) {
+				echo "Error: " . $priv2 . "<br>" . $conn->error; 
+			}
+
+
+			break;
 	}
 ?>
