@@ -56,7 +56,8 @@
     	 
     	 case('send'):
 			$message = $_POST['message'];
-			$sql = "INSERT INTO chat (id, message, username) VALUES (NULL , '$message', NULL )";
+			$username = $_POST['username'];
+			$sql = "INSERT INTO chat (id, message, username) VALUES (NULL , '$message', '$username' )";
     		if ($conn->query($sql) === TRUE) {
 				echo 1;
 			} else {

@@ -1,10 +1,11 @@
 define(function (require) {
-	var ko = require('knockout');
+	var ko = require('knockout'),
+		userDM = require('documentModels/userDM');
 
 	return {
+		userDM: userDM,
 		allMessages: ko.observableArray(),
 		message: ko.observable(),
-		username: ko.observable(),
 		state: ko.observable(),
 		get: function () {
 			var self = this;
@@ -54,19 +55,27 @@ define(function (require) {
 					url: "app/services/liveChat.php",
 					data: {
 						'function': 'send',
-						message: self.message()
+						message: self.message(),
+						username: self.userDM.name()
 					},
-				});
+				})
+					.done(function (response) {
+						console.log(response);
+					});
 				self.message(undefined);
-				self.username(undefined);
 			}
 		},
 		activate: function(){
 			var self = this;
+
 			self.get();
 			self.interval = setInterval(function () {
 				self.update();
 			}, 1000);
+		},
+		compositionComplete: function () {
+			var objDiv = document.getElementById("chat-area");
+			objDiv.scrollTop = objDiv.scrollHeight;
 		},
 		deactivate: function () {
 			var self = this;

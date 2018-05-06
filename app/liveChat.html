@@ -1,21 +1,22 @@
-<div id="page-wrap">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg">
-                <h2>Live Chat</h2>
-                <div data-bind="foreach: allMessages">
-                    <div class="card" style="width: 18rem;">
-                        <div class="list-group">
-                            <h5 class="list-group-item" data-bind="text: message"></h5>
-                        </div>
-                    </div>
+<h2 class="text-center">Chat</h2>
+<div class="container">
+    <div data-bind="foreach: allMessages" id="chat-area">
+        <div data-bind="css: { messageCandidate: (username !== $parent.userDM.name()), messageYou: (username === $parent.userDM.name()), }" class="center-block">
+            <div class="row">
+                <div class="col-xs-8 col-md-6">
+                    <h4 data-bind="text: username" class="message-name"></h4>
                 </div>
+                <!--<div class="col-xs-4 col-md-6 text-right message-date">Date here</div>-->
             </div>
-            <div class="col-sm">
-                <form id="send-message-area">
-                    <p>Your message: </p>
-                    <textarea data-bind="value: message , valueUpdate: 'afterkeydown', event: { keyup: send }" maxlength='100'></textarea>
-                </form>
+            <p data-bind="text: message" class="message-text" style="overflow-wrap:break-word"></p>
+        </div>
+    </div>
+    <div class="messaging center-block">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <input data-bind="value: message , valueUpdate: 'afterkeydown', event: { keyup: send }" type="text" class="form-control">
+                </div>
             </div>
         </div>
     </div>
