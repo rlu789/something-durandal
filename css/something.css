@@ -30,3 +30,9 @@
     margin-left: 10px;
     display: inline-block;
 }
+
+.coolest-thing-on-this-site > iframe {
+    height: 768px;
+    width: 1310px;
+    /*extra width to account for scroll bar haha (its meant to be 1280)*/
+}
