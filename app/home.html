@@ -1,7 +1,7 @@
 <section>
     <h2>Hello!</h2>
     <br />
-    <div data-bind="foreach: blogsCollectionDM">
+    <div data-bind="foreach: blogsCollectionDM" style="float:left">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title" data-bind="text: title"></h5>
@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="coolest-thing-on-this-site">
+    <div class="coolest-thing-on-this-site" style="float:right">
         <iframe src="http://blooming-castle-43633.herokuapp.com/"></iframe>
     </div>
     <!--so in firefox there's a bug where it caches the iframe then bugs out and doesn't show which is weird right?
